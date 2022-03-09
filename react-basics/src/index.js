@@ -1,20 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import UserApp from "./components/UserApp";
-
-const session = true;
-
+import FormLogin from "./components/FormLogin";
 
 
 const App = () => {
+  const [session, changeSession] = useState(false);
+
   return (
     <>
       {session ? 
       <>
-      <UserApp/>
+        <UserApp/>
+        <button onClick={()=> changeSession(false)}>Logout</button>
       </> 
       : 
-      <p>You haven't started session</p>}
+      <>
+        <p>You haven't started session</p>
+        <FormLogin
+          session={session}
+          changeSession={changeSession}
+        />
+        {/* <button onClick={()=> changeSession(true)}>Login</button> */}
+      </>
+      }
     </>
   );
 };

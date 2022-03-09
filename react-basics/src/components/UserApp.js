@@ -1,5 +1,5 @@
 import React from 'react';
-import {TitleOrange, TitleBlue, Title} from './Title';
+import {Title} from './Title';
 
 const UserApp = () => {
     
@@ -8,8 +8,8 @@ const UserApp = () => {
     
     return (
       <div>
-        <TitleOrange user='Arya'/>
-        <TitleBlue user='Raul Alberto'/>
+        <Title user='Raul Alberto'color="orange"/>
+        <Title user='Ruth'color='green'/>
         <Title/>
         {country && <p>I'm from {country}</p>}
         <ul>
