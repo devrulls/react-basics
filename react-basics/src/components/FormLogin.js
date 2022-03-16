@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import styles from "./formLogin.module.css";
+import Button from '../elements/Button';
 
 const FormLogin = ({session ,changeSession}) => {
     const [user, changeUser] = useState('');
@@ -28,11 +30,12 @@ const FormLogin = ({session ,changeSession}) => {
         }
     }
     return ( 
-        <form action='' onSubmit={onSubmit}>
-            <p>User:{user}</p>
-            <p>Password:{password}</p>
+        <form action='' onSubmit={onSubmit} className={styles.form}>
+            <h1>You haven't started a session</h1>
+            {/* <p>User:{user}</p>
+            <p>Password:{password}</p> */}
             <div>
-                <label htmlFor='user'>User</label>
+                <label htmlFor='user' className={styles.label}>User</label>
                 <input 
                     type="text" 
                     name='user' 
@@ -40,8 +43,9 @@ const FormLogin = ({session ,changeSession}) => {
                     id='user'
                     value ={user}
                     onChange = {onChange}
+                    className={styles.input}
                 />
-                <label htmlFor='password'>Password:</label>
+                <label htmlFor='password' className={styles.label}>Password:</label>
                 <input 
                     type="password" 
                     name='password' 
@@ -49,11 +53,12 @@ const FormLogin = ({session ,changeSession}) => {
                     id='password'
                     value={password}
                     onChange = {onChange}
+                    className={styles.input}
                 />
-                <button 
-                    type='submit'   
-                >
-                    Login</button>
+            </div>
+            <div>
+                <Button lenght type='submit'>Login</Button>
+                {/* <button type='submit' className={styles.button}>Login</button> */}
             </div>
         </form>
      );
